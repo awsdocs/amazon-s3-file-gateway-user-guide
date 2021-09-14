@@ -1,11 +1,6 @@
-## My Project
+## Amazon S3 File Gateway User Guide
 
-TODO: Fill this README out!
-
-Be sure to:
-
-* Change the title in this README
-* Edit your repository description on GitHub
+This guide describes Amazon S3 File Gateway concepts and provides instructions on using the various features with both the console and the API.
 
 ## Security
 
