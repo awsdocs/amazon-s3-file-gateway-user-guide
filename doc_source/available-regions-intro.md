@@ -1,0 +1,3 @@
+# Supported AWS Regions<a name="available-regions-intro"></a>
++ Storage Gateway — For supported AWS Regions and a list of AWS service endpoints that you can use with Storage Gateway, see [Storage Gateway endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sg.html) in the *AWS General Reference*\.
++ Storage Gateway Hardware Appliance — For supported Regions that you can use with the hardware appliance, see [Storage Gateway Hardware Appliance Regions](https://docs.aws.amazon.com/general/latest/gr/sg.html#sg-hardware-appliance) in the *AWS General Reference*\. 
