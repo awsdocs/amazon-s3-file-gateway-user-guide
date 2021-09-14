@@ -2,6 +2,8 @@
 
 This guide describes Amazon S3 File Gateway concepts and provides instructions on using the various features with both the console and the API.
 
+You can navigate the guide starting from the [index](doc_source/index.md).
+
 ## Security
 
 See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
