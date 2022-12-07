@@ -99,6 +99,11 @@ The following ports are common to all gateway types and are required by all gate
 |  UDP/UDP  |  53 \(DNS\)  |  Outbound  |  Storage Gateway  |  DNS server  |  For communication between Storage Gateway and the DNS server\.  | 
 |  TCP  |  22 \(Support channel\)  |  Outbound  |  Storage Gateway  |  AWS Support  |  Allows AWS Support to access your gateway to help you with troubleshooting gateway issues\. You don't need this port open for the normal operation of your gateway, but it is required for troubleshooting\.  | 
 |  UDP  |  123 \(NTP\)  |  Outbound  |  NTP client  |  NTP server  |  Used by local systems to synchronize VM time to the host time\.   | 
+|  TCP  |  1026  |  Outbound  |    |    |  Used for control traffic  | 
+|  TCP  |  1027  | Outbound |    |    |  Used only during activation and can then be closed  | 
+|  TCP  | 1028 | Outbound |    |    | Used for control traffic | 
+|  TCP  |  1031  | Outbound |    |    |  Used only for software updates for file gateways  | 
+
 
 **Ports for file gateways**
 
