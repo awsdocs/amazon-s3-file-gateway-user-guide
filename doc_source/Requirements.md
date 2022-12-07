@@ -99,10 +99,6 @@ The following ports are common to all gateway types and are required by all gate
 |  UDP/UDP  |  53 \(DNS\)  |  Outbound  |  Storage Gateway  |  DNS server  |  For communication between Storage Gateway and the DNS server\.  | 
 |  TCP  |  22 \(Support channel\)  |  Outbound  |  Storage Gateway  |  AWS Support  |  Allows AWS Support to access your gateway to help you with troubleshooting gateway issues\. You don't need this port open for the normal operation of your gateway, but it is required for troubleshooting\.  | 
 |  UDP  |  123 \(NTP\)  |  Outbound  |  NTP client  |  NTP server  |  Used by local systems to synchronize VM time to the host time\.   | 
-|  TCP  |  1026  |  Outbound  |    |    |  Used for control traffic  | 
-|  TCP  |  1027  | Outbound |    |    |  Used only during activation and can then be closed  | 
-|  TCP  | 1028 | Outbound |    |    | Used for control traffic | 
-|  TCP  |  1031  | Outbound |    |    |  Used only for software updates for file gateways  | 
 
 
 **Ports for file gateways**
@@ -125,7 +121,12 @@ In addition to the common ports, Amazon S3 File Gateway requires the following p
 | --- | --- | --- | --- | --- | --- | 
 |  TCP/UDP  |  2049 \(NFS\)  |  Inbound  |  NFS clients  |  Storage Gateway  |  For local systems to connect to NFS shares that your gateway exposes\.  | 
 |  TCP/UDP  |  111 \(NFSv3\)  |  Inbound  |  NFSv3 client  |  Storage Gateway  |  For local systems to connect to the port mapper that your gateway exposes\.   This port is needed only for NFSv3\.   | 
-|  TCP/UDP  |  20048 \(NFSv3\)  |  Inbound  |  NFSv3 client  |  Storage Gateway  |  For local systems to connect to mounts that your gateway exposes\.   This port is needed only for NFSv3\.   | 
+|  TCP/UDP  |  20048 \(NFSv3\)  |  Inbound  |  NFSv3 client  |  Storage Gateway  |  For local systems to connect to mounts that your gateway exposes\.   This port is needed only for NFSv3\.   |
+|  TCP  |  443  |  Outbound  | Storage Gateway |  VPC endpoint usage  |  Management control – Used for communication from a Storage Gateway VM to an AWS service endpoint  | 
+|  TCP  |  1026  |  Outbound  | Storage Gateway |  VPC endpoint usage  |  Used for control traffic  | 
+|  TCP  |  1027  | Outbound |  Storage Gateway  | VPC endpoint usage   |  Used only during activation and can then be closed  | 
+|  TCP  | 1028 | Outbound |  Storage Gateway  | VPC endpoint usage   | Used for control traffic | 
+|  TCP  |  1031  | Outbound | Storage Gateway   | VPC endpoint usage   |  Used only for software updates for file gateways  | 
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/xxxxx.png)
 
