@@ -1,6 +1,16 @@
+--------
+
+Amazon FSx File Gateway documentation has been moved to [What is Amazon FSx File Gateway?](https://docs.aws.amazon.com/filegateway/latest/filefsxw/WhatIsStorageGateway.html)
+
+Volume Gateway documentation has been moved to [What is Volume Gateway?](https://docs.aws.amazon.com/storagegateway/latest/vgw/WhatIsStorageGateway.html)
+
+Tape Gateway documentation has been moved to [What is Tape Gateway?](https://docs.aws.amazon.com/storagegateway/latest/tgw/WhatIsStorageGateway.html)
+
+--------
+
 # API Reference for Storage Gateway<a name="AWSStorageGatewayAPI"></a>
 
-In addition to using the console, you can use the Storage Gateway API to programmatically configure and manage your gateways\. This section describes the Storage Gateway operations, request signing for authentication and the error handling\. For information about the regions and endpoints available for Storage Gateway, see [Storage Gateway Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/sg.html) in the *AWS General Reference*\.
+In addition to using the console, you can use the AWS Storage Gateway API to programmatically configure and manage your gateways\. This section describes the AWS Storage Gateway operations, request signing for authentication and the error handling\. For information about the regions and endpoints available for Storage Gateway, see [AWS Storage Gateway Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/sg.html) in the *AWS General Reference*\.
 
 
 
@@ -10,14 +20,14 @@ In addition to using the console, you can use the Storage Gateway API to program
 You can also use the AWS SDKs when developing applications with Storage Gateway\. The AWS SDKs for Java, \.NET, and PHP wrap the underlying Storage Gateway API, simplifying your programming tasks\. For information about downloading the SDK libraries, see [Sample Code Libraries](http://aws.amazon.com/code)\.
 
 **Topics**
-+ [Storage Gateway Required Request Headers](#AWSStorageGatewayHTTPRequestsHeaders)
++ [AWS Storage Gateway Required Request Headers](#AWSStorageGatewayHTTPRequestsHeaders)
 + [Signing Requests](#AWSStorageGatewaySigningRequests)
 + [Error Responses](#APIErrorResponses)
 + [Actions](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html)
 
-## Storage Gateway Required Request Headers<a name="AWSStorageGatewayHTTPRequestsHeaders"></a>
+## AWS Storage Gateway Required Request Headers<a name="AWSStorageGatewayHTTPRequestsHeaders"></a>
 
-This section describes the required headers that you must send with every POST request to Storage Gateway\. You include HTTP headers to identify key information about the request including the operation you want to invoke, the date of the request, and information that indicates the authorization of you as the sender of the request\. Headers are case insensitive and the order of the headers is not important\.
+This section describes the required headers that you must send with every POST request to AWS Storage Gateway\. You include HTTP headers to identify key information about the request including the operation you want to invoke, the date of the request, and information that indicates the authorization of you as the sender of the request\. Headers are case insensitive and the order of the headers is not important\.
 
 The following example shows headers that are used in the [ActivateGateway](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ActivateGateway.html) operation\.
 
@@ -32,15 +42,15 @@ x-amz-date: 20120912T120000Z
 x-amz-target: StorageGateway_20120630.ActivateGateway
 ```
 
-The following are the headers that must include with your POST requests to Storage Gateway\. Headers shown below that begin with "x\-amz" are AWS\-specific headers\. All other headers listed are common header used in HTTP transactions\.
+The following are the headers that must include with your POST requests to AWS Storage Gateway\. Headers shown below that begin with "x\-amz" are AWS\-specific headers\. All other headers listed are common header used in HTTP transactions\.
 
 
 | Header | Description  | 
 | --- | --- | 
-| Authorization |  The authorization header contains several of pieces of information about the request that enable Storage Gateway to determine if the request is a valid action for the requester\. The format of this header is as follows \(line breaks added for readability\):  <pre>Authorization: AWS4-HMAC_SHA456 <br />Credentials=YourAccessKey/yyymmdd/region/storagegateway/aws4_request, <br />SignedHeaders=content-type;host;x-amz-date;x-amz-target, <br />Signature=CalculatedSignature</pre> In the preceding syntax, you specify *YourAccessKey*, the year, month, and day \(*yyyymmdd*\), the *region*, and the *CalculatedSignature*\. The format of the authorization header is dictated by the requirements of the AWS V4 Signing process\. The details of signing are discussed in the topic [Signing Requests](#AWSStorageGatewaySigningRequests)\.  | 
-| Content\-Type |  Use `application/x-amz-json-1.1` as the content type for all requests to Storage Gateway\.  <pre>Content-Type: application/x-amz-json-1.1</pre>  | 
-| Host |  Use the host header to specify the Storage Gateway endpoint where you send your request\. For example, `storagegateway.us-east-2.amazonaws.com` is the endpoint for the US East \(Ohio\) region\. For more information about the endpoints available for Storage Gateway, see [Storage Gateway Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/sg.html) in the *AWS General Reference*\.  <pre>Host: storagegateway.region.amazonaws.com</pre>  | 
-| x\-amz\-date |  You must provide the time stamp in either the HTTP `Date` header or the AWS `x-amz-date` header\. \(Some HTTP client libraries don't let you set the `Date` header\.\) When an `x-amz-date` header is present, the Storage Gateway ignores any `Date` header during the request authentication\. The `x-amz-date` format must be ISO8601 Basic in the YYYYMMDD'T'HHMMSS'Z' format\. If both the `Date` and `x-amz-date` header are used, the format of the Date header does not have to be ISO8601\.  <pre>x-amz-date: YYYYMMDD'T'HHMMSS'Z'</pre>  | 
+| Authorization |  The authorization header contains several of pieces of information about the request that enable AWS Storage Gateway to determine if the request is a valid action for the requester\. The format of this header is as follows \(line breaks added for readability\):  <pre>Authorization: AWS4-HMAC_SHA456 <br />Credentials=YourAccessKey/yyymmdd/region/storagegateway/aws4_request, <br />SignedHeaders=content-type;host;x-amz-date;x-amz-target, <br />Signature=CalculatedSignature</pre> In the preceding syntax, you specify *YourAccessKey*, the year, month, and day \(*yyyymmdd*\), the *region*, and the *CalculatedSignature*\. The format of the authorization header is dictated by the requirements of the AWS V4 Signing process\. The details of signing are discussed in the topic [Signing Requests](#AWSStorageGatewaySigningRequests)\.  | 
+| Content\-Type |  Use `application/x-amz-json-1.1` as the content type for all requests to AWS Storage Gateway\.  <pre>Content-Type: application/x-amz-json-1.1</pre>  | 
+| Host |  Use the host header to specify the AWS Storage Gateway endpoint where you send your request\. For example, `storagegateway.us-east-2.amazonaws.com` is the endpoint for the US East \(Ohio\) region\. For more information about the endpoints available for AWS Storage Gateway, see [AWS Storage Gateway Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/sg.html) in the *AWS General Reference*\.  <pre>Host: storagegateway.region.amazonaws.com</pre>  | 
+| x\-amz\-date |  You must provide the time stamp in either the HTTP `Date` header or the AWS `x-amz-date` header\. \(Some HTTP client libraries don't let you set the `Date` header\.\) When an `x-amz-date` header is present, the AWS Storage Gateway ignores any `Date` header during the request authentication\. The `x-amz-date` format must be ISO8601 Basic in the YYYYMMDD'T'HHMMSS'Z' format\. If both the `Date` and `x-amz-date` header are used, the format of the Date header does not have to be ISO8601\.  <pre>x-amz-date: YYYYMMDD'T'HHMMSS'Z'</pre>  | 
 | x\-amz\-target |  This header specifies the version of the API and the operation that you are requesting\. The target header values are formed by concatenating the API version with the API name and are in the following format\.  <pre>x-amz-target: StorageGateway_APIversion.operationName</pre> The *operationName* value \(e\.g\. "ActivateGateway"\) can be found from the API list, [API Reference for Storage Gateway](#AWSStorageGatewayAPI)\.  | 
 
 ## Signing Requests<a name="AWSStorageGatewaySigningRequests"></a>
@@ -147,13 +157,13 @@ Signature=6d4c40b8f2257534dbdca9f326f147a0a7a419b63aff349d9d9c737c9a0f4c81
 + [Operation Error Codes](#APIOperationErrorCodes)
 + [Error Responses](#RESTErrorResponses)
 
-This section provides reference information about Storage Gateway errors\. These errors are represented by an error exception and an operation error code\. For example, the error exception `InvalidSignatureException` is returned by any API response if there is a problem with the request signature\. However, the operation error code `ActivationKeyInvalid` is returned only for the [ActivateGateway](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ActivateGateway.html) API\. 
+This section provides reference information about AWS Storage Gateway errors\. These errors are represented by an error exception and an operation error code\. For example, the error exception `InvalidSignatureException` is returned by any API response if there is a problem with the request signature\. However, the operation error code `ActivationKeyInvalid` is returned only for the [ActivateGateway](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ActivateGateway.html) API\. 
 
 Depending on the type of error, Storage Gateway may return only just an exception, or it may return both an exception and an operation error code\. Examples of error responses are shown in the [Error Responses](#RESTErrorResponses)\.
 
 ### Exceptions<a name="APIGeneralExceptions"></a>
 
-The following table lists Storage Gateway API exceptions\. When an Storage Gateway operation returns an error response, the response body contains one of these exceptions\. The `InternalServerError` and `InvalidGatewayRequestException` return one of the operation error codes [Operation Error Codes](#APIOperationErrorCodes) message codes that give the specific operation error code\.
+The following table lists AWS Storage Gateway API exceptions\. When an AWS Storage Gateway operation returns an error response, the response body contains one of these exceptions\. The `InternalServerError` and `InvalidGatewayRequestException` return one of the operation error codes [Operation Error Codes](#APIOperationErrorCodes) message codes that give the specific operation error code\.
 
 
 | Exception | Message  | HTTP Status Code | 
@@ -178,7 +188,7 @@ The following table lists Storage Gateway API exceptions\. When an Storage Gatew
 
 ### Operation Error Codes<a name="APIOperationErrorCodes"></a>
 
-The following table shows the mapping between Storage Gateway operation error codes and APIs that can return the codes\. All operation error codes are returned with one of two general exceptions—`InternalServerError` and `InvalidGatewayRequestException`—described in [Exceptions](#APIGeneralExceptions)\.
+The following table shows the mapping between AWS Storage Gateway operation error codes and APIs that can return the codes\. All operation error codes are returned with one of two general exceptions—`InternalServerError` and `InvalidGatewayRequestException`—described in [Exceptions](#APIGeneralExceptions)\.
 
 
 | Operation Error Code | Message | Operations That Return this Error Code | 
@@ -291,4 +301,4 @@ The following JSON body is returned if Storage Gateway calculates a signature th
 
 ## Operations in Storage Gateway<a name="AWSStorageGatewayAPIOperations"></a>
 
-For a list of Storage Gateway operations, see [Actions](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html) in the *Storage Gateway API Reference*\.
+For a list of Storage Gateway operations, see [Actions](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html) in the *AWS Storage Gateway API Reference*\.

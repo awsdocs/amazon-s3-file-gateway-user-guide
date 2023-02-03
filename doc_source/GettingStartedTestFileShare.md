@@ -1,4 +1,14 @@
-# Test your S3 File<a name="GettingStartedTestFileShare"></a>
+--------
+
+Amazon FSx File Gateway documentation has been moved to [What is Amazon FSx File Gateway?](https://docs.aws.amazon.com/filegateway/latest/filefsxw/WhatIsStorageGateway.html)
+
+Volume Gateway documentation has been moved to [What is Volume Gateway?](https://docs.aws.amazon.com/storagegateway/latest/vgw/WhatIsStorageGateway.html)
+
+Tape Gateway documentation has been moved to [What is Tape Gateway?](https://docs.aws.amazon.com/storagegateway/latest/tgw/WhatIsStorageGateway.html)
+
+--------
+
+# Test your S3 File Gateway<a name="GettingStartedTestFileShare"></a>
 
  You can copy files and folders to your mapped drive\. The files automatically upload to your Amazon S3 bucket\.
 
@@ -15,9 +25,9 @@
 Your NFS or SMB client can write, read, delete, rename, and truncate files\.
 
 **Note**  
-File gateways don't support creating hard or symbolic links on a file share\.
+File Gateways don't support creating hard or symbolic links on a file share\.
 
-Keep in mind these points about how file gateways work with S3:
+Keep in mind these points about how File Gateways work with S3:
 + Reads are served from a read\-through cache\. In other words, if data isn't available, it's fetched from S3 and added to the cache\.
 + Writes are sent to S3 through optimized multipart uploads by using a write\-back cache\.
 + Read and writes are optimized so that only the parts that are requested or changed are transferred over the network\.

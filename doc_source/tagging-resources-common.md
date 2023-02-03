@@ -1,3 +1,13 @@
+--------
+
+Amazon FSx File Gateway documentation has been moved to [What is Amazon FSx File Gateway?](https://docs.aws.amazon.com/filegateway/latest/filefsxw/WhatIsStorageGateway.html)
+
+Volume Gateway documentation has been moved to [What is Volume Gateway?](https://docs.aws.amazon.com/storagegateway/latest/vgw/WhatIsStorageGateway.html)
+
+Tape Gateway documentation has been moved to [What is Tape Gateway?](https://docs.aws.amazon.com/storagegateway/latest/tgw/WhatIsStorageGateway.html)
+
+--------
+
 # Tagging Storage Gateway resources<a name="tagging-resources-common"></a>
 
 In Storage Gateway, you can use tags to manage your resources\. Tags let you add metadata to your resources and categorize your resources to make them easier to manage\. Each tag consists of a key\-value pair, which you define\. You can add tags to gateways, volumes, and virtual tapes\. You can search and filter these resources based on the tags you add\.
@@ -6,7 +16,7 @@ As an example, you can use tags to identify Storage Gateway resources used by ea
 
 If you archive a virtual tape that is tagged, the tape maintains its tags in the archive\. Similarly, if you retrieve a tape from the archive to another gateway, the tags are maintained in the new gateway\. 
 
-For file gateway, you can use tags to control access to resources\. For information about how to do this, see [Using tags to control access to your gateway and resources](restrict-fgw-access.md)\.
+For File Gateway, you can use tags to control access to resources\. For information about how to do this, see [Using Tags to Control Access to Your Gateway and Resources](restrict-fgw-access.md)\.
 
 Tags don’t have any semantic meaning but rather are interpreted as strings of characters\.
 
@@ -64,4 +74,4 @@ You can leave the **Value** box blank\.
 
 ## See also<a name="see-also-tags"></a>
 
-[Using tags to control access to your gateway and resources](restrict-fgw-access.md)
+[Using Tags to Control Access to Your Gateway and Resources](restrict-fgw-access.md)

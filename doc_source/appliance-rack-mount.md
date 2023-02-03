@@ -1,3 +1,13 @@
+--------
+
+Amazon FSx File Gateway documentation has been moved to [What is Amazon FSx File Gateway?](https://docs.aws.amazon.com/filegateway/latest/filefsxw/WhatIsStorageGateway.html)
+
+Volume Gateway documentation has been moved to [What is Volume Gateway?](https://docs.aws.amazon.com/storagegateway/latest/vgw/WhatIsStorageGateway.html)
+
+Tape Gateway documentation has been moved to [What is Tape Gateway?](https://docs.aws.amazon.com/storagegateway/latest/tgw/WhatIsStorageGateway.html)
+
+--------
+
 # Rack\-mounting your hardware appliance and connecting it to power<a name="appliance-rack-mount"></a>
 
 After you unbox your Storage Gateway Hardware Appliance, follow the instructions contained in the box to rack\-mount the server\. Your appliance has a 1U form factor and fits in a standard International Electrotechnical Commission \(IEC\) compliant 19\-inch rack\.

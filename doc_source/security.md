@@ -1,3 +1,13 @@
+--------
+
+Amazon FSx File Gateway documentation has been moved to [What is Amazon FSx File Gateway?](https://docs.aws.amazon.com/filegateway/latest/filefsxw/WhatIsStorageGateway.html)
+
+Volume Gateway documentation has been moved to [What is Volume Gateway?](https://docs.aws.amazon.com/storagegateway/latest/vgw/WhatIsStorageGateway.html)
+
+Tape Gateway documentation has been moved to [What is Tape Gateway?](https://docs.aws.amazon.com/storagegateway/latest/tgw/WhatIsStorageGateway.html)
+
+--------
+
 # Security in AWS Storage Gateway<a name="security"></a>
 
 Cloud security at AWS is the highest priority\. As an AWS customer, you benefit from a data center and network architecture that is built to meet the requirements of the most security\-sensitive organizations\.
@@ -10,9 +20,9 @@ This documentation helps you understand how to apply the shared responsibility m
 
 **Topics**
 + [Data protection in AWS Storage Gateway](data-protection.md)
-+ [Authentication and access control for Storage Gateway](UsingIAMWithStorageGateway.md)
-+ [Logging and monitoring in Storage Gateway](logging-using-cloudtrail.md)
++ [Identity and access management for AWS Storage Gateway](security-iam.md)
++ [Logging and monitoring in AWS Storage Gateway](logging-using-cloudtrail.md)
 + [Compliance validation for AWS Storage Gateway](storagegateway-compliance.md)
 + [Resilience in AWS Storage Gateway](disaster-recovery-resiliency.md)
 + [Infrastructure security in AWS Storage Gateway](infrastructure-security.md)
-+ [Security best practices for Storage Gateway](security-best-practice.md)
++ [AWS Security Best Practices](security-best-practice.md)

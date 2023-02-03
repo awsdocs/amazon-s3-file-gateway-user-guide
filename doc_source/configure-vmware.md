@@ -1,3 +1,13 @@
+--------
+
+Amazon FSx File Gateway documentation has been moved to [What is Amazon FSx File Gateway?](https://docs.aws.amazon.com/filegateway/latest/filefsxw/WhatIsStorageGateway.html)
+
+Volume Gateway documentation has been moved to [What is Volume Gateway?](https://docs.aws.amazon.com/storagegateway/latest/vgw/WhatIsStorageGateway.html)
+
+Tape Gateway documentation has been moved to [What is Tape Gateway?](https://docs.aws.amazon.com/storagegateway/latest/tgw/WhatIsStorageGateway.html)
+
+--------
+
 # Configuring VMware for Storage Gateway<a name="configure-vmware"></a>
 
 When configuring VMware for Storage Gateway, make sure to synchronize your VM time with your host time, configure VM to use paravirtualized disk controllers when provisioning storage and provide protection from failures in the infrastructure layer supporting a gateway VM\.
@@ -22,7 +32,7 @@ Synchronizing the VM time with the host time is required for successful gateway 
       The **Virtual Machine Properties** dialog box opens\.
 
          
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/GSProvisionStorageforAppliance_11.png)
+![\[vSphere client with Storage Gateway VM context menu and edit setting option selected.\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/GSProvisionStorageforAppliance_11.png)
 
    1. Choose the **Options** tab, and choose **VMware Tools** in the options list\.
 
@@ -31,7 +41,7 @@ Synchronizing the VM time with the host time is required for successful gateway 
       The VM synchronizes its time with the host\. 
 
          
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/GSSyncVMTime15_small.png)
+![\[Virtual Machine Properties screen with options tab and synchronize guest time with host selected.\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/GSSyncVMTime15_small.png)
 
 1. Configure the host time\. 
 
@@ -44,19 +54,19 @@ Synchronizing the VM time with the host time is required for successful gateway 
       The **Time Configuration** dialog box appears\. 
 
          
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/GSSettingGatewayTime10_3.png)
+![\[vSphere screen with host node, configuration tab, time configuration, and properties selected.\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/GSSettingGatewayTime10_3.png)
 
    1. In the **Date and Time** panel, set the date and time\.
 
          
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/GSSettingGatewayTime15_3.png)
+![\[vSphere time configuration screen with time and date fields highlighted.\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/GSSettingGatewayTime15_3.png)
 
    1. Configure the host to synchronize its time automatically to an NTP server\.
 
       1. Choose **Options** in the **Time Configuration** dialog box, and then in the **NTP Daemon \(ntpd\) Options** dialog box, choose **NTP Settings** in the left pane\.
 
             
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/GSSettingGatewayTime20_3.png)
+![\[vSphere NTP daemon options screen with NTP settings highlighted.\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/GSSettingGatewayTime20_3.png)
 
       1. Choose **Add** to add a new NTP server\.
 
@@ -65,7 +75,7 @@ Synchronizing the VM time with the host time is required for successful gateway 
          You can use `pool.ntp.org` as shown in the following example\.
 
             
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/GSSettingGatewayTime25_3.png)
+![\[vSphere Add NTP Server screen with address field populated.\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/GSSettingGatewayTime25_3.png)
 
       1. In the **NTP Daemon \(ntpd\) Options** dialog box, choose **General** in the left pane\.
 
@@ -74,7 +84,7 @@ Synchronizing the VM time with the host time is required for successful gateway 
          Note that if you change this NTP server reference or add another later, you will need to restart the service to use the new server\.
 
             
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/GSSettingGatewayTime30_3.png)
+![\[vSphere NTP Daemon Options screen with General panel selected and start highlighted.\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/GSSettingGatewayTime30_3.png)
 
    1. Choose **OK** to close the **NTP Daemon \(ntpd\) Options** dialog box\.
 

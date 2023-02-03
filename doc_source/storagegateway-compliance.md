@@ -1,3 +1,13 @@
+--------
+
+Amazon FSx File Gateway documentation has been moved to [What is Amazon FSx File Gateway?](https://docs.aws.amazon.com/filegateway/latest/filefsxw/WhatIsStorageGateway.html)
+
+Volume Gateway documentation has been moved to [What is Volume Gateway?](https://docs.aws.amazon.com/storagegateway/latest/vgw/WhatIsStorageGateway.html)
+
+Tape Gateway documentation has been moved to [What is Tape Gateway?](https://docs.aws.amazon.com/storagegateway/latest/tgw/WhatIsStorageGateway.html)
+
+--------
+
 # Compliance validation for AWS Storage Gateway<a name="storagegateway-compliance"></a>
 
 Third\-party auditors assess the security and compliance of AWS Storage Gateway as part of multiple AWS compliance programs\. These include SOC, PCI, ISO, FedRAMP, HIPAA, MTCS, C5, K\-ISMS, ENS High, OSPAR, and HITRUST CSF\.

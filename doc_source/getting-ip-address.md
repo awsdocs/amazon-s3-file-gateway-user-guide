@@ -1,3 +1,13 @@
+--------
+
+Amazon FSx File Gateway documentation has been moved to [What is Amazon FSx File Gateway?](https://docs.aws.amazon.com/filegateway/latest/filefsxw/WhatIsStorageGateway.html)
+
+Volume Gateway documentation has been moved to [What is Volume Gateway?](https://docs.aws.amazon.com/storagegateway/latest/vgw/WhatIsStorageGateway.html)
+
+Tape Gateway documentation has been moved to [What is Tape Gateway?](https://docs.aws.amazon.com/storagegateway/latest/tgw/WhatIsStorageGateway.html)
+
+--------
+
 # Connecting to Your Gateway<a name="getting-ip-address"></a>
 
 After you choose a host and deploy your gateway VM, you connect and activate your gateway\. To do this, you need the IP address of your gateway VM\. You get the IP address from your gateway's local console\. You log in to the local console and get the IP address from the top of the console page\.

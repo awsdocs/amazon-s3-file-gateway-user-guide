@@ -1,6 +1,16 @@
-# Troubleshooting Amazon EC2 gateway issues<a name="troubleshooting-EC2-gateway-issues"></a>
+--------
 
-In the following sections, you can find typical issues that you might encounter working with your gateway deployed on Amazon EC2\. For more information about the difference between an on\-premises gateway and a gateway deployed in Amazon EC2, see [Deploying a file gateway on an Amazon EC2 host](ec2-gateway-file.md)\.
+Amazon FSx File Gateway documentation has been moved to [What is Amazon FSx File Gateway?](https://docs.aws.amazon.com/filegateway/latest/filefsxw/WhatIsStorageGateway.html)
+
+Volume Gateway documentation has been moved to [What is Volume Gateway?](https://docs.aws.amazon.com/storagegateway/latest/vgw/WhatIsStorageGateway.html)
+
+Tape Gateway documentation has been moved to [What is Tape Gateway?](https://docs.aws.amazon.com/storagegateway/latest/tgw/WhatIsStorageGateway.html)
+
+--------
+
+# Troubleshooting: Amazon EC2 gateway issues<a name="troubleshooting-EC2-gateway-issues"></a>
+
+In the following sections, you can find typical issues that you might encounter working with your gateway deployed on Amazon EC2\. For more information about the difference between an on\-premises gateway and a gateway deployed in Amazon EC2, see [Deploying an Amazon EC2 instance to host your Amazon S3 File Gateway](ec2-gateway-file.md)\.
 
 For information about using ephemeral storage, see [Using ephemeral storage with EC2 gateways](ManagingLocalStorage-common.md#ephemeral-disk-cache)\.
 
@@ -31,7 +41,7 @@ Storage Gateway provides a local console you can use to perform several maintena
 **Note**  
 If you add a new rule to an existing security group, the new rule applies to all instances that use that security group\. For more information about security groups and how to add a security group rule, see [Amazon EC2 security groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) in the *Amazon EC2 User Guide*\.
 
-To let AWS Support connect to your gateway, you first log in to the local console for the Amazon EC2 instance, navigate to the storage gateway's console, and then provide the access\.
+To let AWS Support connect to your gateway, you first log in to the local console for the Amazon EC2 instance, navigate to the Storage Gateway's console, and then provide the access\.
 
 **To enable AWS Support access to a gateway deployed on an Amazon EC2 instance**
 
@@ -46,17 +56,13 @@ To let AWS Support connect to your gateway, you first log in to the local consol
 The *PRIVATE\-KEY* is the `.pem` file containing the private certificate of the EC2 key pair that you used to launch the Amazon EC2 instance\. For more information, see [Retrieving the public key for your key pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#retriving-the-public-key) in the *Amazon EC2 User Guide*\.  
 The *INSTANCE\-PUBLIC\-DNS\-NAME* is the public Domain Name System \(DNS\) name of your Amazon EC2 instance that your gateway is running on\. You obtain this public DNS name by selecting the Amazon EC2 instance in the EC2 console and clicking the **Description** tab\.
 
-   The local console looks like the following\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/EC2_LocalConsole-StartPage.png)
-
-1. At the prompt, enter **3** to open the AWS Support Channel console\.
+1. At the prompt, enter **6 \- Command Prompt** to open the AWS Support Channel console\.
 
 1. Enter **h** to open the **AVAILABLE COMMANDS** window\.
 
 1. Do one of the following:
    + If your gateway is using a public endpoint, in the **AVAILABLE COMMANDS** window, enter **open\-support\-channel** to connect to customer support for Storage Gateway\. Allow TCP port 22 so you can open a support channel to AWS\. When you connect to customer support, Storage Gateway assigns you a support number\. Make a note of your support number\.
-   + If your gateway is using a VPC endpoint, in the **AVAILABLE COMMANDS** window, enter **open\-support\-channel**\. If your gateway is not activated, provide the VPC endpoint or IP address to connect to customer support for Storage Gateway\. Allow TCP port 22 so you can open a support channel to AWS\. When you connect to customer support, Storage Gateway assigns you a support number\. Make a note of your support number\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/EC2-assign-service-number.png)
+   + If your gateway is using a VPC endpoint, in the **AVAILABLE COMMANDS** window, enter **open\-support\-channel**\. If your gateway is not activated, provide the VPC endpoint or IP address to connect to customer support for Storage Gateway\. Allow TCP port 22 so you can open a support channel to AWS\. When you connect to customer support, Storage Gateway assigns you a support number\. Make a note of your support number\.
 **Note**  
 The channel number is not a Transmission Control Protocol/User Datagram Protocol \(TCP/UDP\) port number\. Instead, the gateway makes a Secure Shell \(SSH\) \(TCP 22\) connection to Storage Gateway servers and provides the support channel for the connection\.
 

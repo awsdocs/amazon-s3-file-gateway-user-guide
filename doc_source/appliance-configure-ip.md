@@ -1,6 +1,16 @@
+--------
+
+Amazon FSx File Gateway documentation has been moved to [What is Amazon FSx File Gateway?](https://docs.aws.amazon.com/filegateway/latest/filefsxw/WhatIsStorageGateway.html)
+
+Volume Gateway documentation has been moved to [What is Volume Gateway?](https://docs.aws.amazon.com/storagegateway/latest/vgw/WhatIsStorageGateway.html)
+
+Tape Gateway documentation has been moved to [What is Tape Gateway?](https://docs.aws.amazon.com/storagegateway/latest/tgw/WhatIsStorageGateway.html)
+
+--------
+
 # Configuring an IP address for the gateway<a name="appliance-configure-ip"></a>
 
-To assign a static IP address to a gateway installed on your hardware appliance, configure the IP address from the local console of that gateway\. Your applications \(such as your NFS or SMB client, your iSCSI initiator, and so on\) connect to this IP address\. You can access the gateway local console from the hardware appliance console\.
+Before you activated your hardware appliance, you assigned an IP address to its physical network interface\. Now that you have activated the appliance and launched your Storage Gateway on it, you need to assign another IP address to the Storage Gateway virtual machine that runs on the hardware appliance\. To assign a static IP address to a gateway installed on your hardware appliance, configure the IP address from the local console for that gateway\. Your applications \(such as your NFS or SMB client, your iSCSI initiator, and so on\) connect to this IP address\. You can access the gateway local console from the hardware appliance console\.
 
 **To configure an IP address on your appliance to work with applications**
 
@@ -24,7 +34,7 @@ To assign a static IP address to a gateway installed on your hardware appliance,
   
 
 
-1. Configure a static or DHCP IP address for the network port on your hardware appliance to present a file, volume, and tape gateway for applications\. This IP address must be on the same subnet as the IP address used during hardware appliance activation\.
+1. Configure a static or DHCP IP address for the network port on your hardware appliance to present a file, volume, and Tape Gateway for applications\. This IP address must be on the same subnet as the IP address used during hardware appliance activation\.
 
 **To exit the gateway local console**
 + Press the `Crtl+]` \(close bracket\) keystroke\. The hardware console appears\.

@@ -1,78 +1,92 @@
-# Deploying a file gateway on an Amazon EC2 host<a name="ec2-gateway-file"></a>
+--------
 
-You can deploy and activate a file gateway on an Amazon Elastic Compute Cloud \(Amazon EC2\) instance\. The file gateway Amazon Machine Image \(AMI\) is available as a community AMI\.
+Amazon FSx File Gateway documentation has been moved to [What is Amazon FSx File Gateway?](https://docs.aws.amazon.com/filegateway/latest/filefsxw/WhatIsStorageGateway.html)
 
-**To deploy a gateway on an Amazon EC2 instance**
+Volume Gateway documentation has been moved to [What is Volume Gateway?](https://docs.aws.amazon.com/storagegateway/latest/vgw/WhatIsStorageGateway.html)
 
-1. On the **Select host platform** page, choose **Amazon EC2**\.
+Tape Gateway documentation has been moved to [What is Tape Gateway?](https://docs.aws.amazon.com/storagegateway/latest/tgw/WhatIsStorageGateway.html)
 
-1. Choose **Launch instance** to launch a storage gateway EC2 AMI\. You are redirected to the Amazon EC2 console where you can choose an instance type\.
+--------
 
-1. On the **Step 2: Choose an Instance Type** page, choose the hardware configuration of your instance\. Storage Gateway is supported on instance types that meet certain minimum requirements\. We recommend starting with the m4\.xlarge instance type, which meets the minimum requirements for your gateway to function properly\. For more information, see [Hardware requirements for on\-premises VMs](Requirements.md#requirements-hardware)\.
+# Deploying an Amazon EC2 instance to host your Amazon S3 File Gateway<a name="ec2-gateway-file"></a>
+
+You can deploy and activate an Amazon S3 File Gateway on an Amazon Elastic Compute Cloud \(Amazon EC2\) instance\. The AWS Storage Gateway Amazon Machine Image \(AMI\) is available as a community AMI\.
+
+**Note**  
+Storage Gateway community AMIs are published and fully supported by AWS\. You can see that the publisher is AWS, a verified provider\.
+
+**To deploy an Amazon EC2 instance to host your Amazon S3 File Gateway**
+
+1. Start setting up a new gateway using the Storage Gateway console\. For instructions, see [Set up an Amazon S3 File Gateway](https://docs.aws.amazon.com/filegateway/latest/files3/create-gateway-file.html#set-up-gateway-s3-file)\. When you reach the **Platform options** section, choose **Amazon EC2** as the **Host platform**, then use the following steps to launch the Amazon EC2 instance that will host your File Gateway\.
+
+1. Choose **Launch instance** to open the AWS Storage Gateway AMI template in the Amazon EC2 console, where you can configure additional settings\.
+
+   Use **Quicklaunch** to launch the Amazon EC2 instance with default settings\. For more information on Amazon EC2 Quicklaunch default specifications, see [Quicklaunch Configuration Specifications for Amazon EC2](https://docs.aws.amazon.com/filegateway/latest/files3/ec2-quicklaunch-settings.html)\. 
+
+1. For **Name**, enter a name for the Amazon EC2 instance\. After the instance is deployed, you can search for this name to find your instance on list pages in the Amazon EC2 console\.
+
+1. In the **Instance type** section, for **Instance type**, choose the hardware configuration for your instance\. The hardware configuration must meet certain minimum requirements to support your gateway\. We recommend starting with the **m5\.xlarge** instance type, which meets the minimum hardware requirements for your gateway to function properly\. For more information, see [Requirements for Amazon EC2 instance types](Requirements.md#requirements-hardware)\.
 
    You can resize your instance after you launch, if necessary\. For more information, see [Resizing your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html) in the *Amazon EC2 User Guide for Linux Instances*\.
 **Note**  
-Certain instance types, particularly i3 EC2, use NVMe SSD disks\. These can cause problems when you start or stop file gateway; for example, you can lose data from the cache\. Monitor the `CachePercentDirty` Amazon CloudWatch metric, and only start or stop your system when that parameter is `0`\. To learn more about monitoring metrics for your gateway, see [Storage Gateway metrics and dimensions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/awssg-metricscollected.html) in the CloudWatch documentation\. For more information about Amazon EC2 instance type requirements, see [Requirements for Amazon EC2 instance types](Requirements.md#requirements-hardware-ec2)\.
+Certain instance types, particularly i3 EC2, use NVMe SSD disks\. These can cause problems when you start or stop File Gateway; for example, you can lose data from the cache\. Monitor the `CachePercentDirty` Amazon CloudWatch metric, and only start or stop your system when that parameter is `0`\. To learn more about monitoring metrics for your gateway, see [Storage Gateway metrics and dimensions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/awssg-metricscollected.html) in the CloudWatch documentation\.
 
-1. Choose **Next: Configure Instance Details**\.
+1. In the **Key pair \(login\)** section, for **Key pair name \- *required***, select the key pair you want to use to securely connect to your instance\. You can create a new key pair if necessary\. For more information, see [Create a key pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-key-pair) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances*\.
 
-1. On the **Step 3: Configure Instance Details** page, choose a value for **Auto\-assign Public IP**\. If your instance should be accessible from the public internet, verify that **Auto\-assign Public IP** is set to **Enable**\. If your instance shouldn't be accessible from the internet, choose **Auto\-assign Public IP** for **Disable**\.
+1. In the **Network settings** section, review the preconfigured settings and choose **Edit** to make changes to the following fields:
 
-1. For **IAM role**, choose the AWS Identity and Access Management \(IAM\) role that you want to use for your gateway\.
+   1. For **VPC \- *required***, choose the VPC where you want to launch your Amazon EC2 instance\. For more information, see [How Amazon VPC works](https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html) in the *Amazon Virtual Private Cloud User Guide*\.
 
-1. Choose **Next: Add Storage**\.
+   1. \(Optional\) For **Subnet**, choose the subnet where you want to launch your Amazon EC2 instance\.
 
-1. On the **Step 4: Add Storage** page, choose **Add New Volume** to add storage to your file gateway instance\. You need at least one Amazon EBS volume to configure for cache storage\. 
+   1. For **Auto\-assign Public IP**, choose **Enable**\.
 
-   Recommended disk sizes: Cache \(Minimum\) 150 GiB and Cache \(Maximum\) 64 TiB
+1. In the **Firewall \(security groups\)** subsection, review the preconfigured settings\. You can change the default name and description of the new security group to be created for your Amazon EC2 instance if you want, or choose to apply firewall rules from an existing security group instead\.
 
-1. On the **Step 5: Add Tags** page, you can add an optional tag to your instance\. Then choose **Next: Configure Security Group**\.
+1. In the **Inbound security groups rules** subsection, add firewall rules to open the ports that clients will use to connect to your instance\. For more information on the ports required for Amazon S3 File Gateway, see [Port requirements](https://docs.aws.amazon.com/filegateway/latest/files3/Requirements.html#requirements-network)\. For more information on adding firewall rules, see [Security group rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules.html) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances*\.
+**Note**  
+Amazon S3 File Gateway requires TCP port 80 to be open for inbound traffic and one\-time HTTP access during gateway activation\. After activation, you can close this port\.  
+If you plan to create NFS file shares, you must open TCP/UDP port 2049 for NFS access, TCP/UDP port 111 for NFSv3 access, and TCP/UDP port 20048 for NFSv3 access\.  
+If you plan to create SMB file shares, you must open TCP port 445 for SMB access\.
 
-1. On the **Step 6: Configure Security Group** page, add firewall rules to specific traffic to reach your instance\. You can create a new security group or choose an existing security group\.
+1. In the **Advanced network configuration** subsection, review the preconfigured settings and make changes if necessary\.
+
+1. In the **Configure storage** section, choose **Add new volume** to add storage to your gateway instance\.
 **Important**  
-Besides the Storage Gateway activation and Secure Shell \(SSH\) access ports, NFS clients require access to additional ports\. For detailed information, see [Network and firewall requirements](Requirements.md#networks)\.
+You must add at least one Amazon EBS volume with at least **150 GiB** capacity for cache storage in addition to the preconfigured **Root volume**\. For increased performance, we recommend allocating multiple EBS volumes for cache storage with at least 150 GiB each\.
 
-1. Choose **Review and Launch** to review your configuration\.
+1. In the **Advanced details** section, review the preconfigured settings and make changes if necessary\.
 
-1. On the **Step 7: Review Instance Launch** page, choose **Launch**\.
+1. Choose **Launch instance** to launch your new Amazon EC2 gateway instance with the configured settings\.
 
-1. In the **Select an existing key pair or create a new key pair** dialog box, choose **Choose an existing key pair**, and then select the key pair that you created when getting set up\. When you are ready, choose the acknowledgment box, and then choose **Launch Instances**\.
+1. To verify that your new instance launched successfully, navigate to the **Instances** page in the Amazon EC2 console and search for your new instance by name\. Ensure that that **Instance state** displays **Running** *with a green check mark*, and that the **Status check** is complete, and *shows a green check mark*\.
 
-   A confirmation page tells you that your instance is launching\.
+1. Select your instance from the details page\. Copy the **Public IPv4 address** from the **Instance summary** section, then return to the **Set up gateway** page in the Storage Gateway console to resume setting up your Amazon S3 File Gateway\.
 
-1.  Choose **View Instances** to close the confirmation page and return to the console\. On the **Instances** screen, you can view the status of your instance\. It takes a short time for an instance to launch\. When you launch an instance, its initial state is **pending**\. After the instance starts, its state changes to **running**, and it receives a public DNS name
-
-1. Select your instance, note the public IP address in the **Description** tag, and return to the [Connect to gateway](GettingStartedBeginActivateGateway-file.md) page on the Storage Gateway console to continue your gateway setup\.
-
-You can determine the AMI ID to use for launching a file gateway by using the Storage Gateway console or by querying the AWS Systems Manager parameter store\.
+You can determine the AMI ID to use for launching a File Gateway by using the Storage Gateway console or by querying the AWS Systems Manager parameter store\.
 
 **To determine the AMI ID**
++ Start setting up a new gateway using the Storage Gateway console\. For instructions, see [Set up an Amazon S3 File Gateway](https://docs.aws.amazon.com/filegateway/latest/files3/create-gateway-file.html#set-up-gateway-s3-file)\. When you reach the **Platform options** section, choose **Amazon EC2** as the **Host platform**, then choose **Launch instance** to open the AWS Storage Gateway AMI template in the Amazon EC2 console\.
 
-1. Sign in to the AWS Management Console and open the Storage Gateway console at [https://console\.aws\.amazon\.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/)\.
+  You are redirected to the EC2 community AMI page, where you can see the AMI ID for your AWS Region in the URL\.
 
-1. Choose **Create gateway**, choose **File gateway**, and then choose **Next**\.
+  You can also query the Systems Manager parameter store\. You can use the AWS CLI or Storage Gateway API to query the Systems Manager public parameter under the namespace `/aws/service/storagegateway/ami/FILE_S3/latest`\. For example, using the following CLI command returns the ID of the current AMI in the AWS Region you specify\.
 
-1. On the **Choose host platform** page, choose **Amazon EC2**\.
+  ```
+  aws --region us-east-2 ssm get-parameter --name /aws/service/storagegateway/ami/FILE_S3/latest
+  ```
 
-1. Choose **Launch instance** to launch a Storage Gateway EC2 AMI\. You are redirected to the EC2 community AMI page, where you can see the AMI ID for your AWS Region in the URL\.
+  The CLI command returns output similar to the following\.
 
-   Or you can query the Systems Manager parameter store\. You can use the AWS CLI or Storage Gateway API to query the Systems Manager public parameter under the namespace `/aws/service/storagegateway/ami/FILE_S3/latest`\. For example, using the following CLI command returns the ID of the current AMI in the current AWS Region\.
-
-   ```
-   aws --region us-east-2 ssm get-parameter --name /aws/service/storagegateway/ami/FILE_S3/latest
-   ```
-
-   The CLI command returns output similar to the following\.
-
-   ```
-   {
-       "Parameter": {
-           "Type": "String",
-           "LastModifiedDate": 1561054105.083,
-           "Version": 4,
-           "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/storagegateway/ami/FILE_S3/latest",
-           "Name": "/aws/service/storagegateway/ami/FILE_S3/latest",
-           "Value": "ami-123c45dd67d891000"
-       }
-   }
-   ```
+  ```
+  {
+      "Parameter": {
+          "Type": "String",
+          "LastModifiedDate": 1561054105.083,
+          "Version": 4,
+          "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/storagegateway/ami/FILE_S3/latest",
+          "Name": "/aws/service/storagegateway/ami/FILE_S3/latest",
+          "Value": "ami-123c45dd67d891000"
+      }
+  }
+  ```

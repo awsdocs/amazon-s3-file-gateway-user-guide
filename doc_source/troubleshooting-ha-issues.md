@@ -1,4 +1,14 @@
-# Troubleshooting high availability issues<a name="troubleshooting-ha-issues"></a>
+--------
+
+Amazon FSx File Gateway documentation has been moved to [What is Amazon FSx File Gateway?](https://docs.aws.amazon.com/filegateway/latest/filefsxw/WhatIsStorageGateway.html)
+
+Volume Gateway documentation has been moved to [What is Volume Gateway?](https://docs.aws.amazon.com/storagegateway/latest/vgw/WhatIsStorageGateway.html)
+
+Tape Gateway documentation has been moved to [What is Tape Gateway?](https://docs.aws.amazon.com/storagegateway/latest/tgw/WhatIsStorageGateway.html)
+
+--------
+
+# Troubleshooting: high availability issues<a name="troubleshooting-ha-issues"></a>
 
 You can find information following about actions to take if you experience availability issues\.
 
@@ -45,7 +55,7 @@ If this event repeatedly occurs without an `AvailabilityMonitorTest` notificatio
 
 ### Notification: AvailabilityMonitorTest<a name="troubleshoot-availabilitymonitortest-notification"></a>
 
-For a gateway on VMware vSphere HA, you can get an `AvailabilityMonitorTest` notification when you [run a test](Performance.md#vmware-ha-test-failover) of the [Availability and application monitoring](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_StartAvailabilityMonitorTest.html) system in VMware\.
+For a gateway on VMware vSphere HA, you can get an `AvailabilityMonitorTest` notification when you [run a test](vmware-ha.md#vmware-ha-test-failover) of the [Availability and application monitoring](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_StartAvailabilityMonitorTest.html) system in VMware\.
 
 ## Metrics<a name="ha-health-notification-metrics"></a>
 

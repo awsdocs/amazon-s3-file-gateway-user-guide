@@ -1,10 +1,20 @@
-# Deleting Your Gateway by Using the Storage Gateway Console and Removing Associated Resources<a name="deleting-gateway-common"></a>
+--------
+
+Amazon FSx File Gateway documentation has been moved to [What is Amazon FSx File Gateway?](https://docs.aws.amazon.com/filegateway/latest/filefsxw/WhatIsStorageGateway.html)
+
+Volume Gateway documentation has been moved to [What is Volume Gateway?](https://docs.aws.amazon.com/storagegateway/latest/vgw/WhatIsStorageGateway.html)
+
+Tape Gateway documentation has been moved to [What is Tape Gateway?](https://docs.aws.amazon.com/storagegateway/latest/tgw/WhatIsStorageGateway.html)
+
+--------
+
+# Deleting Your Gateway by Using the AWS Storage Gateway Console and Removing Associated Resources<a name="deleting-gateway-common"></a>
 
 If you don't plan to continue using your gateway, consider deleting the gateway and its associated resources\. Removing resources avoids incurring charges for resources you don't plan to continue using and helps reduce your monthly bill\. 
 
-When you delete a gateway, it no longer appears on the Storage Gateway Management Console and its iSCSI connection to the initiator is closed\. The procedure for deleting a gateway is the same for all gateway types; however, depending on the type of gateway you want to delete and the host it is deployed on, you follow specific instructions to remove associated resources\. 
+When you delete a gateway, it no longer appears on the AWS Storage Gateway Management Console and its iSCSI connection to the initiator is closed\. The procedure for deleting a gateway is the same for all gateway types; however, depending on the type of gateway you want to delete and the host it is deployed on, you follow specific instructions to remove associated resources\. 
 
-You can delete a gateway using the Storage Gateway console or programmatically\. You can find information following about how to delete a gateway using the Storage Gateway console\. If you want to programmatically delete your gateway, see *[Storage Gateway API Reference](https://docs.aws.amazon.com/storagegateway/latest/APIReference/)\.* 
+You can delete a gateway using the Storage Gateway console or programmatically\. You can find information following about how to delete a gateway using the Storage Gateway console\. If you want to programmatically delete your gateway, see *[AWS Storage Gateway API Reference](https://docs.aws.amazon.com/storagegateway/latest/APIReference/)\.* 
 
 **Topics**
 + [Deleting Your Gateway by Using the Storage Gateway Console](#delete-gateway-procedure)
@@ -23,19 +33,15 @@ For gateways deployed on a virtual machine \(VM\), after you delete your gateway
 
 1. Open the Storage Gateway console at [https://console\.aws\.amazon\.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/)\.
 
-1. In the navigation pane, choose **Gateways**, and then choose the gateway you want to delete\.
+1. Choose **Gateways**, then select one or more gateways to delete\.
 
-1. For **Actions**, choose **Delete gateway**\.
-
-1. 
+1. For **Actions**, choose **Delete gateway**\. The confirmation dialog box appears\.
 **Warning**  
-Before you do this step, be sure that there are no applications currently writing to the gateway's volumes\. If you delete the gateway while it is in use, data loss can occur\.  
-Also, when a gateway is deleted, there is no way to get it back\.
+Before you do this step, make sure that there are no applications currently writing to the gateway's volumes\. If you delete the gateway while it is in use, data loss can occur\. When a gateway is deleted, there is no way to get it back\.
 
-   In the confirmation dialog box that appears, select the check box to confirm your deletion\. Make sure the gateway ID listed specifies the gateway you want to delete\. and then choose **Delete**\.
+1. Verify that you want to delete the specified gateways, then type the word *delete* in the confirmation box, and choose **Delete**\.
 
-      
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/filegateway/latest/files3/images/delete-gateway.png)
+1. \(Optional\) If you want to provide feedback about your deleted gateway, complete the feedback dialog box, then choose **Submit**\. Otherwise, choose **Skip**\.
 
 **Important**  
 You no longer pay software charges after you delete a gateway, but resources such as virtual tapes, Amazon Elastic Block Store \(Amazon EBS\) snapshots, and Amazon EC2 instances persist\. You will continue to be billed for these resources\. You can choose to remove Amazon EC2 instances and Amazon EBS snapshots by canceling your Amazon EC2 subscription\. If you want to keep your Amazon EC2 subscription, you can delete your Amazon EBS snapshots using the Amazon EC2 console\.
